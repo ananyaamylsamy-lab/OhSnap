@@ -1,0 +1,20 @@
+{
+  "name": "ohsnap-backend",
+  "version": "1.0.0",
+  "description": "Backend for OhSnap photography platform",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "author": "Ananyaa Mylsamy & Manasha Sekar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "express-session": "^1.17.3",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1"
+  }
+}
