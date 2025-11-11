@@ -1,4 +1,4 @@
-# OhSnap! 📸
+# OhSnap! 
 
 ## Authors
 **Author 1:**  
@@ -44,6 +44,9 @@ Build a collaborative photography platform where photographers discover hidden g
 **Manasha Sekar** - Location CRUD (backend routes/validation), search/filters, LocationForm/List/Detail/Map components
 
 **Shared:** User authentication, navigation, linking photographers to locations
+
+## Presentation 
+https://docs.google.com/presentation/d/1wYwPTzhxg-QC81eqDIFUv5eIaByD9ExLh5nAZymkYRU/edit?usp=sharing
 
 ## Instructions to Build
 
