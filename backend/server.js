@@ -16,11 +16,9 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session configuration
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "ohsnap-secret-key",
@@ -30,13 +28,12 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+      maxAge: 1000 * 60 * 60 * 24 * 7,
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     },
   })
 );
 
-// Serve static frontend files
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 // API Routes
@@ -44,12 +41,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/shots", shotRoutes);
 app.use("/api/locations", locationRoutes);
 
-// Health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK", message: "OhSnap! API is running" });
 });
 
-// Serve React app for all other routes
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });

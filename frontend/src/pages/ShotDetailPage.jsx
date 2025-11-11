@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
 import * as api from '../utils/api';
-import PropTypes from 'prop-types';
 import styles from './ShotDetailPage.module.css';
 
 function ShotDetailPage() {
@@ -79,7 +78,7 @@ function ShotDetailPage() {
       };
       await api.updateShot(id, updates);
       setShowEditModal(false);
-      await loadShot(); // Reload to show updates
+      await loadShot();
     } catch (err) {
       alert('Failed to update: ' + err.message);
     }
@@ -360,7 +359,7 @@ function ShotDetailPage() {
           </div>
         </div>
       )}
-      {/* Delete Confirmation Modal */}
+      {}
       {showDeleteModal && (
         <div className={styles.modal} onClick={() => setShowDeleteModal(false)}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>

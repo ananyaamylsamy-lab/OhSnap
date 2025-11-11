@@ -9,13 +9,10 @@ import MyShotsPage from './pages/MyShotsPage';
 import AddShotPage from './pages/AddShotPage';
 import ShotDetailPage from './pages/ShotDetailPage';
 import PhotographerProfilePage from './pages/PhotographerProfilePage';
-
-// Manasha - Location pages
 import LocationsPage from './pages/LocationsPage';
 import AddLocationPage from './pages/AddLocationPage';
 import LocationDetailPage from './pages/LocationDetailPage';
 
-// Protected Route wrapper
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
   
@@ -32,12 +29,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          {/* Public Routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           
-          {/* Protected Routes */}
           <Route 
             path="/dashboard" 
             element={
@@ -47,13 +42,10 @@ function App() {
             } 
           />
           
-          {/* Ananyaa - Shot routes */}
           <Route path="/shots" element={<ProtectedRoute><MyShotsPage /></ProtectedRoute>} />
           <Route path="/shots/new" element={<ProtectedRoute><AddShotPage /></ProtectedRoute>} />
           <Route path="/shots/:id" element={<ProtectedRoute><ShotDetailPage /></ProtectedRoute>} />
           <Route path="/photographer/:userId" element={<PhotographerProfilePage />} />
-          
-          {/* Manasha - Location Routes */}
           <Route path="/locations" element={<LocationsPage />} />
           <Route 
             path="/add-location" 

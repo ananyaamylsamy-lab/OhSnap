@@ -4,7 +4,6 @@ import { useAuth } from '../hooks/useAuth.jsx';
 import { useShots } from '../hooks/useShots.jsx';
 import ShotCard from '../components/ShotCard';
 import * as api from '../utils/api';
-import PropTypes from 'prop-types';
 import styles from './PhotographerProfilePage.module.css';
 
 function PhotographerProfilePage() {

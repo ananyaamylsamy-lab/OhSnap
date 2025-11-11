@@ -12,7 +12,7 @@ const requireAuth = (req, res, next) => {
   next();
 };
 
-// POST / - Create location
+// POST - Create location
 router.post("/", requireAuth, async (req, res) => {
   try {
     const {
@@ -28,7 +28,6 @@ router.post("/", requireAuth, async (req, res) => {
       samplePhotoUrl,
     } = req.body;
 
-    // Validation
     if (!name || !city || !coordinates) {
       return res
         .status(400)
@@ -80,7 +79,7 @@ router.post("/", requireAuth, async (req, res) => {
   }
 });
 
-// GET / - Get all locations with filters
+// GET - Get all locations with filters
 router.get("/", async (req, res) => {
   try {
     const {
@@ -99,7 +98,6 @@ router.get("/", async (req, res) => {
 
     const filter = {};
 
-    // Build filter object
     if (city) filter.city = { $regex: city, $options: "i" };
     if (search)
       filter.$or = [
@@ -137,7 +135,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET /:id - Get single location
+// GET id - Get single location
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -163,7 +161,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// PUT /:id - Update location
+// PUT id - Update location
 router.put("/:id", requireAuth, async (req, res) => {
   try {
     const { id } = req.params;
@@ -175,7 +173,6 @@ router.put("/:id", requireAuth, async (req, res) => {
 
     const locationsCollection = getCollection("locations");
 
-    // Check ownership
     const location = await locationsCollection.findOne({
       _id: new ObjectId(id),
     });
@@ -190,7 +187,6 @@ router.put("/:id", requireAuth, async (req, res) => {
         .json({ error: "Not authorized to update this location" });
     }
 
-    // Validate coordinates if provided
     if (updates.coordinates) {
       if (
         !updates.coordinates.latitude ||
@@ -217,7 +213,6 @@ router.put("/:id", requireAuth, async (req, res) => {
     );
 
     if (!result || !result.value) {
-      // If findOneAndUpdate fails, fetch the location directly
       const updatedLocation = await locationsCollection.findOne({
         _id: new ObjectId(id),
       });
@@ -242,7 +237,7 @@ router.put("/:id", requireAuth, async (req, res) => {
   }
 });
 
-// DELETE /:id - Delete location
+// DELETE id - Delete location
 router.delete("/:id", requireAuth, async (req, res) => {
   try {
     const { id } = req.params;
@@ -253,7 +248,6 @@ router.delete("/:id", requireAuth, async (req, res) => {
 
     const locationsCollection = getCollection("locations");
 
-    // Check ownership
     const location = await locationsCollection.findOne({
       _id: new ObjectId(id),
     });

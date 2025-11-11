@@ -1,6 +1,5 @@
 const API_URL = "/api";
 
-// Generic request handler
 async function request(endpoint, options = {}) {
   const config = {
     ...options,
@@ -26,7 +25,7 @@ async function request(endpoint, options = {}) {
   }
 }
 
-// ============ AUTH ENDPOINTS ============
+// Auth Endpoints
 export const signup = (userData) => {
   return request("/auth/signup", {
     method: "POST",
@@ -58,7 +57,7 @@ export const updateProfile = (profileData) => {
   });
 };
 
-// ============ SHOT ENDPOINTS (Ananyaa) ============
+// Shot Endpoints
 export const createShot = (shotData) => {
   return request("/shots", {
     method: "POST",
@@ -96,7 +95,7 @@ export const getShotsByLocation = (locationId) => {
   return request(`/shots/by-location/${locationId}`);
 };
 
-// ============ LOCATION ENDPOINTS (Manasha) ============
+// Location Endpoints
 export const createLocation = (locationData) => {
   return request("/locations", {
     method: "POST",

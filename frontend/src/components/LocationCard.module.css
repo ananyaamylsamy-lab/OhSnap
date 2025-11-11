@@ -122,7 +122,7 @@
   font-weight: 500;
   text-decoration: none;
   text-align: center;
-  transition: background 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .button:hover {
@@ -139,7 +139,7 @@
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
-  transition: background 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .deleteButton:hover {

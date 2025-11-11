@@ -26,7 +26,6 @@ function Navbar() {
               <Link to="/shots" className={styles.link}>My Shots</Link>
               <Link to="/shots/new" className={styles.link}>Log Shot</Link>
               
-              {/* Manasha - Location navigation links */}
               <Link to="/locations" className={styles.link}>Locations</Link>
               <Link to="/add-location" className={styles.link}>+ Add Location</Link>
               

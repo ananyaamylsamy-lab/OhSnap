@@ -146,7 +146,6 @@ export default function LocationDetailPage() {
   console.log("Created By ID:", createdById);
   console.log("Is Owner:", isOwner);
   
-  // For testing: allow edit/delete if user is logged in
   const canEdit = user ? true : false;
   
   const avgRating =

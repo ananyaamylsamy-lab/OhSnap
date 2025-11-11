@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useShots } from '../hooks/useShots.jsx';
 import * as api from '../utils/api';
-import PropTypes from 'prop-types';
 import styles from './AddShotPage.module.css';
 
 function AddShotPage() {
@@ -33,16 +32,12 @@ function AddShotPage() {
 
   const loadLocations = async () => {
     try {
-      // TODO: Manasha - This will work once location routes are ready
-      // const data = await api.fetchLocations();
-      // setLocations(data);
-      
-      // Placeholder for now
-      setLocations([
-        { _id: '690d88313aa0d59cc80fe6d8', name: 'Test Location - Golden Gate' },
-      ]);
+      const data = await api.fetchLocations();
+      setLocations(data);
     } catch (err) {
       console.error('Error loading locations:', err);
+      setError('Failed to load locations. Please ensure locations are available.');
+      setLocations([]);
     }
   };
 

@@ -13,10 +13,10 @@ export const connectDB = async () => {
     client = new MongoClient(uri);
     await client.connect();
     db = client.db("ohsnap");
-    console.log("✅ Connected to MongoDB - OhSnap database");
+    console.log("Connected to MongoDB - OhSnap database");
     return db;
   } catch (error) {
-    console.error("❌ MongoDB connection error:", error);
+    console.error("MongoDB connection error!", error);
     throw error;
   }
 };
@@ -33,7 +33,6 @@ export const getCollection = (collectionName) => {
   return database.collection(collectionName);
 };
 
-// Graceful shutdown
 process.on("SIGINT", async () => {
   if (client) {
     await client.close();

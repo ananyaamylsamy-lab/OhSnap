@@ -82,7 +82,7 @@
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  transition: background 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .actionBtn:hover:not(:disabled) {

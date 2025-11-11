@@ -23,7 +23,6 @@ router.post("/", requireAuth, async (req, res) => {
       isPrivate,
     } = req.body;
 
-    // Basic validation
     if (!locationId || !date || !cameraModel) {
       return res.status(400).json({ 
         error: "Location, date, and camera model are required" 
@@ -63,7 +62,7 @@ router.post("/", requireAuth, async (req, res) => {
   }
 });
 
-// READ - Get all shots (with filters)
+// READ - Get all shots
 router.get("/", async (req, res) => {
   try {
     const { userId, locationId, cameraModel, lens } = req.query;
@@ -275,7 +274,7 @@ router.get("/stats/:userId", async (req, res) => {
   }
 });
 
-// GET - Shots by location (for Manasha's location detail page)
+// GET - Shots by location
 router.get("/by-location/:locationId", async (req, res) => {
   try {
     const shots = getCollection("shots");

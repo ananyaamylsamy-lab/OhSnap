@@ -34,7 +34,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .editBtn:hover {
@@ -48,7 +48,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .deleteBtn:hover {

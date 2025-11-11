@@ -33,7 +33,6 @@ router.post("/signup", async (req, res) => {
       createdAt: new Date(),
     });
 
-    // Store user info in session
     req.session.userId = result.insertedId.toString();
     req.session.username = username;
     req.session.email = email;
@@ -70,7 +69,6 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    // Store user info in session
     req.session.userId = user._id.toString();
     req.session.username = user.username;
     req.session.email = user.email || "";

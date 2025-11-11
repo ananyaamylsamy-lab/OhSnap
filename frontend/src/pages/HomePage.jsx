@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import styles from './HomePage.module.css';
 
 function HomePage() {
@@ -31,7 +30,6 @@ function HomePage() {
   return (
     <div className={styles.container}>
       <section className={styles.hero}>
-        {/* Photo Carousel Background */}
         <div className={styles.photoCarousel}>
           {photos.map((photo, index) => (
             <div
@@ -45,7 +43,6 @@ function HomePage() {
           <div className={styles.overlay} />
         </div>
 
-        {/* Carousel Controls */}
         <div className={styles.carouselControls}>
           {photos.map((_, index) => (
             <button
@@ -59,7 +56,6 @@ function HomePage() {
           ))}
         </div>
 
-        {/* Content */}
         <div className={styles.heroContent}>
           <h1 className={styles.title}>OhSnap!</h1>
           <p className={styles.tagline}>
