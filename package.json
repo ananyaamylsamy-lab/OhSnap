@@ -5,12 +5,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "cd backend && npm start",
+    "start": "cd backend && node server.js",
     "dev": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install",
     "build:frontend": "cd frontend && npm run build",
     "install-backend": "cd backend && npm install",
     "install-frontend": "cd frontend && npm install",
+    "install-all": "npm run install-backend && npm run install-frontend",
     "lint": "eslint .",
     "format": "prettier --write backend frontend"
   },
@@ -18,7 +20,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/ohsnap-photography"
+    "url": "https://github.com/ananyaamylsamy-lab/OhSnap.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
