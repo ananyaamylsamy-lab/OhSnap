@@ -137,24 +137,24 @@
 }.imageCard {
   display: block;
   position: relative;
-  height: 280px; /* Increased height for better proportions */
-  background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800') center/cover;
+  height: 280px;
+  background: url('/images/map.jpg') center/cover;
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.3s ease;
-  grid-column: 1 / -1; /* Spans all columns in grid */
+  grid-column: 1 / -1;
   width: 100%;
 }
 
 .imageCard:hover {
-  transform: scale(1.01); /* Reduced scale for larger card */
+  transform: scale(1.01);
 }
 
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
   transition: opacity 0.3s ease;
 }
 
@@ -165,7 +165,7 @@
 .imageContent {
   position: relative;
   z-index: 1;
-  padding: 32px; /* Increased padding for larger card */
+  padding: 32px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -188,14 +188,14 @@
 
 .imageContent h3 {
   margin: 0;
-  font-size: 32px; /* Increased font size */
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .imageContent p {
   margin: 8px 0 0 0;
-  font-size: 15px; /* Slightly larger */
+  font-size: 15px;
   opacity: 0.9;
 }
 
@@ -217,7 +217,6 @@
     font-size: 28px;
   }
 
-  /* Full width on mobile too */
   .imageCard {
     height: 220px;
     grid-column: 1;

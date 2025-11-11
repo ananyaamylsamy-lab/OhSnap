@@ -32,8 +32,19 @@ function DashboardPage() {
       </div>
 
       <div className={styles.quickActions}>
-        <h2>Quick Actions</h2>
         <div className={styles.actionGrid}>
+
+          <Link to="/map" className={styles.imageCard}>
+            <div className={styles.imageContent}>
+              <div className={styles.imageTag}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                </svg>
+                <span>Map View</span>
+              </div>
+              <h3>Explore Photography Locations</h3>
+            </div>
+          </Link>
 
           <Link to="/locations" className={styles.actionCard}>
             <h3>Discover Locations</h3>
@@ -45,19 +56,6 @@ function DashboardPage() {
             <h3>Add Location</h3>
             <p>Share a new photography spot</p>
             <button className={styles.actionBtn}>Add</button>
-          </Link>
-    
-          <Link to="/map" className={styles.imageCard}>
-            <div className={styles.imageOverlay}></div>
-            <div className={styles.imageContent}>
-              <div className={styles.imageTag}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                </svg>
-                <span>Map View</span>
-              </div>
-              <h3>Explore Photography Locations</h3>
-            </div>
           </Link>
 
           <Link to="/shots" className={styles.actionCard}>
