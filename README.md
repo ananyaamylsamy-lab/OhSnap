@@ -78,10 +78,6 @@ Build a collaborative photography platform where photographers discover hidden g
 **Frontend:** React (Hooks, Router, CSS Modules, PropTypes), HTML, CSS  
 **Tools:** ESLint + Prettier, Vite, Render
 
-## File Structure
-
-- <TODO>
-
 ## Team Responsibilities
 
 **Ananyaa Mylsamy** - Shot CRUD (backend routes/validation), photography statistics, photographer profiles, ShotForm/List/Detail/Dashboard components
