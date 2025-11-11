@@ -196,12 +196,8 @@ router.put("/:id", requireAuth, async (req, res) => {
       ) {
         return res.status(400).json({ error: "Invalid coordinates format" });
       }
-      updates.coordinates.latitude = parseFloat(
-        updates.coordinates.latitude
-      );
-      updates.coordinates.longitude = parseFloat(
-        updates.coordinates.longitude
-      );
+      updates.coordinates.latitude = parseFloat(updates.coordinates.latitude);
+      updates.coordinates.longitude = parseFloat(updates.coordinates.longitude);
     }
 
     updates.updatedAt = new Date();
@@ -209,18 +205,18 @@ router.put("/:id", requireAuth, async (req, res) => {
     const result = await locationsCollection.findOneAndUpdate(
       { _id: new ObjectId(id) },
       { $set: updates },
-      { returnDocument: "after" }
+      { returnDocument: "after" },
     );
 
     if (!result || !result.value) {
       const updatedLocation = await locationsCollection.findOne({
         _id: new ObjectId(id),
       });
-      
+
       if (!updatedLocation) {
         return res.status(404).json({ error: "Location not found" });
       }
-      
+
       return res.json({
         message: "Location updated successfully",
         location: updatedLocation,

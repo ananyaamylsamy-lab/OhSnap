@@ -94,7 +94,9 @@ export default function LocationsPage() {
         <main className={styles.main}>
           {error && <div className={styles.error}>{error}</div>}
 
-          {loading && <div className={styles.loading}>Loading locations...</div>}
+          {loading && (
+            <div className={styles.loading}>Loading locations...</div>
+          )}
 
           {!loading && locations.length === 0 && (
             <div className={styles.empty}>
@@ -105,7 +107,8 @@ export default function LocationsPage() {
           {!loading && locations.length > 0 && (
             <>
               <div className={styles.resultsInfo}>
-                Showing {locations.length} of {pagination.total || locations.length} locations
+                Showing {locations.length} of{" "}
+                {pagination.total || locations.length} locations
               </div>
 
               <div className={styles.grid}>
@@ -118,64 +121,67 @@ export default function LocationsPage() {
                 ))}
               </div>
 
-            {pagination.pages > 1 && (
-              <div className={styles.pagination}>
-                <button
-                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                  disabled={currentPage === 1}
-                  className={styles.pageButton}
-                >
-                  ← Previous
-                </button>
-            
-                {(() => {
-                  const maxButtons = 10;
-                  const pages = [];
-                  
-                  if (pagination.pages <= maxButtons) {
-                    for (let i = 1; i <= pagination.pages; i++) {
-                      pages.push(i);
+              {pagination.pages > 1 && (
+                <div className={styles.pagination}>
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className={styles.pageButton}
+                  >
+                    ← Previous
+                  </button>
+
+                  {(() => {
+                    const maxButtons = 10;
+                    const pages = [];
+
+                    if (pagination.pages <= maxButtons) {
+                      for (let i = 1; i <= pagination.pages; i++) {
+                        pages.push(i);
+                      }
+                    } else {
+                      let startPage = Math.max(
+                        1,
+                        currentPage - Math.floor(maxButtons / 2),
+                      );
+                      let endPage = Math.min(
+                        pagination.pages,
+                        startPage + maxButtons - 1,
+                      );
+
+                      if (endPage - startPage < maxButtons - 1) {
+                        startPage = Math.max(1, endPage - maxButtons + 1);
+                      }
+
+                      for (let i = startPage; i <= endPage; i++) {
+                        pages.push(i);
+                      }
                     }
-                  } else {
-                    let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
-                    let endPage = Math.min(pagination.pages, startPage + maxButtons - 1);
-                    
-                    if (endPage - startPage < maxButtons - 1) {
-                      startPage = Math.max(1, endPage - maxButtons + 1);
+
+                    return pages.map((page) => (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`${styles.pageButton} ${
+                          currentPage === page ? styles.active : ""
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    ));
+                  })()}
+
+                  <button
+                    onClick={() =>
+                      setCurrentPage((p) => Math.min(pagination.pages, p + 1))
                     }
-                    
-                    for (let i = startPage; i <= endPage; i++) {
-                      pages.push(i);
-                    }
-                  }
-                  
-                  return pages.map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`${styles.pageButton} ${
-                        currentPage === page ? styles.active : ""
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  ));
-                })()}
-            
-                <button
-                  onClick={() =>
-                    setCurrentPage((p) =>
-                      Math.min(pagination.pages, p + 1)
-                    )
-                  }
-                  disabled={currentPage === pagination.pages}
-                  className={styles.pageButton}
-                >
-                  Next →
-                </button>
-              </div>
-            )}
- 
+                    disabled={currentPage === pagination.pages}
+                    className={styles.pageButton}
+                  >
+                    Next →
+                  </button>
+                </div>
+              )}
             </>
           )}
         </main>

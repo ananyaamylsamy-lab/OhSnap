@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth.jsx';
-import { useShots } from '../hooks/useShots.jsx';
-import ShotCard from '../components/ShotCard';
-import * as api from '../utils/api';
-import styles from './PhotographerProfilePage.module.css';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth.jsx";
+import { useShots } from "../hooks/useShots.jsx";
+import ShotCard from "../components/ShotCard";
+import * as api from "../utils/api";
+import styles from "./PhotographerProfilePage.module.css";
 
 function PhotographerProfilePage() {
   const { userId } = useParams();
@@ -23,7 +23,7 @@ function PhotographerProfilePage() {
       const data = await api.getPhotographerStats(userId);
       setStats(data);
     } catch (err) {
-      console.error('Error loading stats:', err);
+      console.error("Error loading stats:", err);
     } finally {
       setLoading(false);
     }
@@ -42,7 +42,7 @@ function PhotographerProfilePage() {
           <div className={styles.avatar}>📷</div>
           <div>
             <h1 className={styles.username}>
-              {shots.length > 0 ? shots[0].username : 'Photographer'}
+              {shots.length > 0 ? shots[0].username : "Photographer"}
             </h1>
             {isOwnProfile && <span className={styles.badge}>Your Profile</span>}
           </div>
@@ -54,25 +54,19 @@ function PhotographerProfilePage() {
           <div className={styles.statValue}>{stats?.totalShots || 0}</div>
           <div className={styles.statLabel}>Total Shots</div>
         </div>
-        
+
         <div className={styles.statCard}>
-          <div className={styles.statValue}>
-            {stats?.averageRating || 0}
-          </div>
+          <div className={styles.statValue}>{stats?.averageRating || 0}</div>
           <div className={styles.statLabel}>Average Rating</div>
         </div>
-        
+
         <div className={styles.statCard}>
-          <div className={styles.statValue}>
-            {stats?.favoriteCamera || '-'}
-          </div>
+          <div className={styles.statValue}>{stats?.favoriteCamera || "-"}</div>
           <div className={styles.statLabel}>Favorite Camera</div>
         </div>
-        
+
         <div className={styles.statCard}>
-          <div className={styles.statValue}>
-            {stats?.favoriteLens || '-'}
-          </div>
+          <div className={styles.statValue}>{stats?.favoriteLens || "-"}</div>
           <div className={styles.statLabel}>Favorite Lens</div>
         </div>
       </div>

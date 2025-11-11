@@ -74,7 +74,7 @@
 }
 
 .nearbyBtn {
-  background: #4CAF50;
+  background: #4caf50;
   color: white;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .addBtn {
-  background: #FF6B6B;
+  background: #ff6b6b;
   color: white;
 }
 
@@ -182,7 +182,7 @@
 }
 
 .counterContent strong {
-  color: #FF6B6B;
+  color: #ff6b6b;
   font-size: 18px;
   margin-right: 5px;
 }
@@ -253,7 +253,7 @@
 .viewBtn {
   width: 100%;
   padding: 8px;
-  background: #FF6B6B;
+  background: #ff6b6b;
   color: white;
   border: none;
   border-radius: 6px;
@@ -289,14 +289,18 @@
   width: 24px;
   height: 24px;
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #FF6B6B;
+  border-top: 3px solid #ff6b6b;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .error {
@@ -366,15 +370,15 @@
     padding: 0 15px;
     height: 50px;
   }
-  
+
   .mapInfo {
     display: none;
   }
-  
+
   .mapControls {
     gap: 5px;
   }
-  
+
   .nearbyBtn,
   .styleBtn,
   .listBtn,
@@ -382,37 +386,37 @@
     padding: 6px 10px;
     font-size: 13px;
   }
-  
+
   .styleBtn span {
     display: none;
   }
-  
+
   .legend {
     bottom: 80px;
     left: 10px;
     padding: 10px;
     max-width: 150px;
   }
-  
+
   .legend h4 {
     font-size: 12px;
     margin-bottom: 8px;
   }
-  
+
   .legendItems {
     font-size: 11px;
     gap: 4px;
   }
-  
+
   .dot {
     width: 10px;
     height: 10px;
   }
-  
+
   .counter {
     display: none;
   }
-  
+
   .mapContainer :global(.mapboxgl-ctrl-top-right) {
     top: 60px;
     right: 5px;
@@ -423,7 +427,7 @@
   .styleBtn {
     display: none;
   }
-  
+
   .legend {
     font-size: 10px;
   }

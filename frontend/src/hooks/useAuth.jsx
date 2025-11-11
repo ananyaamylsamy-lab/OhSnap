@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import * as api from '../utils/api';
+import { createContext, useContext, useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import * as api from "../utils/api";
 
 const AuthContext = createContext(null);
 
@@ -59,7 +59,7 @@ AuthProvider.propTypes = {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
+    throw new Error("useAuth must be used within AuthProvider");
   }
   return context;
 }

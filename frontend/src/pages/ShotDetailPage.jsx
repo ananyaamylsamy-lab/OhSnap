@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth.jsx';
-import * as api from '../utils/api';
-import styles from './ShotDetailPage.module.css';
+import { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth.jsx";
+import * as api from "../utils/api";
+import styles from "./ShotDetailPage.module.css";
 
 function ShotDetailPage() {
   const { id } = useParams();
@@ -10,7 +10,7 @@ function ShotDetailPage() {
   const { user } = useAuth();
   const [shot, setShot] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [editFormData, setEditFormData] = useState({});
@@ -38,21 +38,21 @@ function ShotDetailPage() {
   const confirmDelete = async () => {
     try {
       await api.deleteShot(id);
-      navigate('/shots');
+      navigate("/shots");
     } catch (err) {
-      alert('Failed to delete: ' + err.message);
+      alert("Failed to delete: " + err.message);
     }
-};
+  };
 
   const handleEdit = () => {
     setEditFormData({
-      weather: shot.weather || '',
-      description: shot.description || '',
-      cameraModel: shot.cameraModel || '',
-      lens: shot.lens || '',
-      aperture: shot.aperture || '',
-      shutterSpeed: shot.shutterSpeed || '',
-      iso: shot.iso || '',
+      weather: shot.weather || "",
+      description: shot.description || "",
+      cameraModel: shot.cameraModel || "",
+      lens: shot.lens || "",
+      aperture: shot.aperture || "",
+      shutterSpeed: shot.shutterSpeed || "",
+      iso: shot.iso || "",
       rating: shot.rating || 0,
       isPrivate: shot.isPrivate || false,
     });
@@ -63,7 +63,7 @@ function ShotDetailPage() {
     const { name, value, type, checked } = e.target;
     setEditFormData({
       ...editFormData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
@@ -72,7 +72,9 @@ function ShotDetailPage() {
     try {
       const updates = {
         ...editFormData,
-        aperture: editFormData.aperture ? parseFloat(editFormData.aperture) : null,
+        aperture: editFormData.aperture
+          ? parseFloat(editFormData.aperture)
+          : null,
         iso: editFormData.iso ? parseInt(editFormData.iso) : null,
         rating: parseFloat(editFormData.rating),
       };
@@ -80,16 +82,16 @@ function ShotDetailPage() {
       setShowEditModal(false);
       await loadShot();
     } catch (err) {
-      alert('Failed to update: ' + err.message);
+      alert("Failed to update: " + err.message);
     }
   };
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -110,13 +112,17 @@ function ShotDetailPage() {
     return <div className={styles.error}>Shot not found</div>;
   }
 
-  const isOwner = user?.userId && shot?.userId && 
+  const isOwner =
+    user?.userId &&
+    shot?.userId &&
     (user.userId === shot.userId.toString() || user.userId === shot.userId);
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Link to="/shots" className={styles.backBtn}>← Back to My Shots</Link>
+        <Link to="/shots" className={styles.backBtn}>
+          ← Back to My Shots
+        </Link>
         {isOwner && (
           <div className={styles.actions}>
             <button onClick={handleEdit} className={styles.editBtn}>
@@ -149,9 +155,7 @@ function ShotDetailPage() {
           <div className={styles.mainInfo}>
             <h1 className={styles.camera}>{shot.cameraModel}</h1>
             {shot.rating > 0 && (
-              <div className={styles.rating}>
-                ⭐ {shot.rating} / 5
-              </div>
+              <div className={styles.rating}>⭐ {shot.rating} / 5</div>
             )}
           </div>
 
@@ -174,7 +178,9 @@ function ShotDetailPage() {
                 {shot.shutterSpeed && (
                   <div className={styles.metaItem}>
                     <span className={styles.metaLabel}>Shutter Speed</span>
-                    <span className={styles.metaValue}>{shot.shutterSpeed}</span>
+                    <span className={styles.metaValue}>
+                      {shot.shutterSpeed}
+                    </span>
                   </div>
                 )}
                 {shot.iso && (
@@ -191,7 +197,9 @@ function ShotDetailPage() {
               <div className={styles.metaGrid}>
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>Date</span>
-                  <span className={styles.metaValue}>{formatDate(shot.date)}</span>
+                  <span className={styles.metaValue}>
+                    {formatDate(shot.date)}
+                  </span>
                 </div>
                 {shot.weather && (
                   <div className={styles.metaItem}>
@@ -206,7 +214,7 @@ function ShotDetailPage() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>Privacy</span>
                   <span className={styles.metaValue}>
-                    {shot.isPrivate ? '🔒 Private' : '🌐 Public'}
+                    {shot.isPrivate ? "🔒 Private" : "🌐 Public"}
                   </span>
                 </div>
               </div>
@@ -225,14 +233,20 @@ function ShotDetailPage() {
       {/* Edit Modal */}
       {showEditModal && (
         <div className={styles.modal} onClick={() => setShowEditModal(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={styles.modalHeader}>
               <h2>Edit Shot</h2>
-              <button onClick={() => setShowEditModal(false)} className={styles.modalClose}>
+              <button
+                onClick={() => setShowEditModal(false)}
+                className={styles.modalClose}
+              >
                 &times;
               </button>
             </div>
-            
+
             <form onSubmit={handleEditSubmit} className={styles.editForm}>
               <div className={styles.formGroup}>
                 <label>Camera Model</label>
@@ -362,17 +376,25 @@ function ShotDetailPage() {
       {}
       {showDeleteModal && (
         <div className={styles.modal} onClick={() => setShowDeleteModal(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={styles.modalHeader}>
               <h2>Delete Shot?</h2>
-              <button onClick={() => setShowDeleteModal(false)} className={styles.modalClose}>
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                className={styles.modalClose}
+              >
                 &times;
               </button>
             </div>
-            
+
             <div className={styles.deleteWarning}>
               <p>Are you sure you want to delete this shot permanently?</p>
-              <p className={styles.warningText}>This action cannot be undone.</p>
+              <p className={styles.warningText}>
+                This action cannot be undone.
+              </p>
             </div>
 
             <div className={styles.modalActions}>
@@ -383,7 +405,10 @@ function ShotDetailPage() {
               >
                 Cancel
               </button>
-              <button onClick={confirmDelete} className={styles.deleteConfirmBtn}>
+              <button
+                onClick={confirmDelete}
+                className={styles.deleteConfirmBtn}
+              >
                 Delete Permanently
               </button>
             </div>

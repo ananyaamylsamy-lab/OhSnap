@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useAuth } from '../hooks/useAuth.jsx';
-import { useShots } from '../hooks/useShots.jsx';
-import ShotCard from '../components/ShotCard';
-import SearchBar from '../components/SearchBar';
-import styles from './MyShotsPage.module.css';
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../hooks/useAuth.jsx";
+import { useShots } from "../hooks/useShots.jsx";
+import ShotCard from "../components/ShotCard";
+import SearchBar from "../components/SearchBar";
+import styles from "./MyShotsPage.module.css";
 
 function MyShotsPage() {
   const { user } = useAuth();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const { shots, loading, error } = useShots(
-    user?.userId ? { userId: user.userId } : {}
+    user?.userId ? { userId: user.userId } : {},
   );
 
-  const filteredShots = shots.filter(shot => {
+  const filteredShots = shots.filter((shot) => {
     if (!searchTerm) return true;
     const search = searchTerm.toLowerCase();
     return (
@@ -39,9 +39,9 @@ function MyShotsPage() {
         </Link>
       </div>
 
-      <SearchBar 
-        onSearch={setSearchTerm} 
-        placeholder="Search by camera or lens..." 
+      <SearchBar
+        onSearch={setSearchTerm}
+        placeholder="Search by camera or lens..."
       />
 
       {filteredShots.length === 0 ? (

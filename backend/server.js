@@ -31,7 +31,7 @@ app.use(
       maxAge: 1000 * 60 * 60 * 24 * 7,
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     },
-  })
+  }),
 );
 
 app.use(express.static(path.join(__dirname, "../frontend/dist")));

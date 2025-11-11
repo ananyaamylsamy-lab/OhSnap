@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useShots } from '../hooks/useShots.jsx';
-import * as api from '../utils/api';
-import styles from './AddShotPage.module.css';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useShots } from "../hooks/useShots.jsx";
+import * as api from "../utils/api";
+import styles from "./AddShotPage.module.css";
 
 function AddShotPage() {
   const navigate = useNavigate();
   const { createShot } = useShots();
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  
+  const [error, setError] = useState("");
+
   const [formData, setFormData] = useState({
-    locationId: '',
-    date: new Date().toISOString().split('T')[0],
-    weather: '',
-    description: '',
-    cameraModel: '',
-    lens: '',
-    aperture: '',
-    shutterSpeed: '',
-    iso: '',
-    photos: '',
+    locationId: "",
+    date: new Date().toISOString().split("T")[0],
+    weather: "",
+    description: "",
+    cameraModel: "",
+    lens: "",
+    aperture: "",
+    shutterSpeed: "",
+    iso: "",
+    photos: "",
     rating: 0,
     isPrivate: false,
   });
@@ -35,8 +35,10 @@ function AddShotPage() {
       const data = await api.fetchLocations();
       setLocations(data.locations || data || []);
     } catch (err) {
-      console.error('Error loading locations:', err);
-      setError('Failed to load locations. Please ensure locations are available.');
+      console.error("Error loading locations:", err);
+      setError(
+        "Failed to load locations. Please ensure locations are available.",
+      );
       setLocations([]);
     }
   };
@@ -45,14 +47,14 @@ function AddShotPage() {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
       const shotData = {
@@ -60,13 +62,15 @@ function AddShotPage() {
         aperture: formData.aperture ? parseFloat(formData.aperture) : null,
         iso: formData.iso ? parseInt(formData.iso) : null,
         rating: parseFloat(formData.rating),
-        photos: formData.photos ? formData.photos.split(',').map(p => p.trim()) : [],
+        photos: formData.photos
+          ? formData.photos.split(",").map((p) => p.trim())
+          : [],
       };
 
       await createShot(shotData);
-      navigate('/shots');
+      navigate("/shots");
     } catch (err) {
-      setError(err.message || 'Failed to log shot');
+      setError(err.message || "Failed to log shot");
     } finally {
       setLoading(false);
     }
@@ -83,7 +87,7 @@ function AddShotPage() {
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.section}>
           <h2>Location & Date</h2>
-          
+
           <div className={styles.formGroup}>
             <label htmlFor="locationId" className={styles.label}>
               Location *
@@ -97,11 +101,12 @@ function AddShotPage() {
               required
             >
               <option value="">Select a location</option>
-              {Array.isArray(locations) && locations.map((loc) => (
-                <option key={loc._id} value={loc._id}>
-                  {loc.name}
-                </option>
-              ))}
+              {Array.isArray(locations) &&
+                locations.map((loc) => (
+                  <option key={loc._id} value={loc._id}>
+                    {loc.name}
+                  </option>
+                ))}
             </select>
           </div>
 
@@ -138,7 +143,7 @@ function AddShotPage() {
 
         <div className={styles.section}>
           <h2>Camera Settings</h2>
-          
+
           <div className={styles.formGroup}>
             <label htmlFor="cameraModel" className={styles.label}>
               Camera Model *
@@ -221,7 +226,7 @@ function AddShotPage() {
 
         <div className={styles.section}>
           <h2>Details</h2>
-          
+
           <div className={styles.formGroup}>
             <label htmlFor="description" className={styles.label}>
               Description
@@ -288,13 +293,13 @@ function AddShotPage() {
         <div className={styles.actions}>
           <button
             type="button"
-            onClick={() => navigate('/shots')}
+            onClick={() => navigate("/shots")}
             className={styles.cancelBtn}
           >
             Cancel
           </button>
           <button type="submit" className={styles.submitBtn} disabled={loading}>
-            {loading ? 'Logging...' : 'Log Shot'}
+            {loading ? "Logging..." : "Log Shot"}
           </button>
         </div>
       </form>

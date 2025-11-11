@@ -2,7 +2,10 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch, placeholder = "Search locations..." }) {
+export default function SearchBar({
+  onSearch,
+  placeholder = "Search locations...",
+}) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {

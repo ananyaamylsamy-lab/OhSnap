@@ -134,11 +134,12 @@
   color: #666;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-}.imageCard {
+}
+.imageCard {
   display: block;
   position: relative;
   height: 280px;
-  background: url('/images/map.jpg') center/cover;
+  background: url("/images/map.jpg") center/cover;
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
@@ -154,7 +155,11 @@
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
   transition: opacity 0.3s ease;
 }
 

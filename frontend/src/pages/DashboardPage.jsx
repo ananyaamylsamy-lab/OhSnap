@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { useAuth } from '../hooks/useAuth.jsx';
-import styles from './DashboardPage.module.css';
-import * as api from '../utils/api';
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useAuth } from "../hooks/useAuth.jsx";
+import styles from "./DashboardPage.module.css";
+import * as api from "../utils/api";
 
 function DashboardPage() {
   const { user } = useAuth();
@@ -19,7 +19,7 @@ function DashboardPage() {
       const data = await api.getPhotographerStats(user.userId);
       setStats(data);
     } catch (err) {
-      console.error('Error loading stats:', err);
+      console.error("Error loading stats:", err);
     }
   };
 
@@ -33,12 +33,16 @@ function DashboardPage() {
 
       <div className={styles.quickActions}>
         <div className={styles.actionGrid}>
-
           <Link to="/map" className={styles.imageCard}>
             <div className={styles.imageContent}>
               <div className={styles.imageTag}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                 </svg>
                 <span>Map View</span>
               </div>
@@ -51,7 +55,7 @@ function DashboardPage() {
             <p>Find photography spots near you</p>
             <button className={styles.actionBtn}>Browse</button>
           </Link>
-          
+
           <Link to="/add-location" className={styles.actionCard}>
             <h3>Add Location</h3>
             <p>Share a new photography spot</p>
@@ -69,7 +73,6 @@ function DashboardPage() {
             <p>Upload your latest photo shoot</p>
             <button className={styles.actionBtn}>Add Shot</button>
           </Link>
-          
         </div>
       </div>
 
@@ -81,11 +84,15 @@ function DashboardPage() {
             <div className={styles.statLabel}>Total Shots</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statValue}>{stats?.topLocations?.length || 0}</div>
+            <div className={styles.statValue}>
+              {stats?.topLocations?.length || 0}
+            </div>
             <div className={styles.statLabel}>Locations Visited</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statValue}>{stats?.favoriteCamera || '-'}</div>
+            <div className={styles.statValue}>
+              {stats?.favoriteCamera || "-"}
+            </div>
             <div className={styles.statLabel}>Favorite Camera</div>
           </div>
           <div className={styles.statCard}>

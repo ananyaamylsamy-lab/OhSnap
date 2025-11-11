@@ -4,7 +4,9 @@ import styles from "./LocationCard.module.css";
 
 export default function LocationCard({ location, onDelete }) {
   const avgRating =
-    location.ratingCount > 0 ? (location.rating / location.ratingCount).toFixed(1) : "N/A";
+    location.ratingCount > 0
+      ? (location.rating / location.ratingCount).toFixed(1)
+      : "N/A";
 
   const handleDelete = () => {
     if (window.confirm("Are you sure you want to delete this location?")) {
@@ -32,7 +34,9 @@ export default function LocationCard({ location, onDelete }) {
         <p className={styles.city}>{location.city}</p>
 
         {location.description && (
-          <p className={styles.description}>{location.description.substring(0, 100)}...</p>
+          <p className={styles.description}>
+            {location.description.substring(0, 100)}...
+          </p>
         )}
 
         <div className={styles.metadata}>
@@ -50,15 +54,16 @@ export default function LocationCard({ location, onDelete }) {
           </div>
         </div>
 
-        {location.photographyStyles && location.photographyStyles.length > 0 && (
-          <div className={styles.tags}>
-            {location.photographyStyles.map((style) => (
-              <span key={style} className={styles.tag}>
-                {style}
-              </span>
-            ))}
-          </div>
-        )}
+        {location.photographyStyles &&
+          location.photographyStyles.length > 0 && (
+            <div className={styles.tags}>
+              {location.photographyStyles.map((style) => (
+                <span key={style} className={styles.tag}>
+                  {style}
+                </span>
+              ))}
+            </div>
+          )}
       </div>
 
       <div className={styles.actions}>

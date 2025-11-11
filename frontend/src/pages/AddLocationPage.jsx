@@ -82,7 +82,10 @@ export default function AddLocationPage() {
       errors.city = "City is required";
     }
 
-    if (!formData.coordinates.latitude || isNaN(formData.coordinates.latitude)) {
+    if (
+      !formData.coordinates.latitude ||
+      isNaN(formData.coordinates.latitude)
+    ) {
       errors.latitude = "Valid latitude is required";
     } else if (
       formData.coordinates.latitude < -90 ||
@@ -91,7 +94,10 @@ export default function AddLocationPage() {
       errors.latitude = "Latitude must be between -90 and 90";
     }
 
-    if (!formData.coordinates.longitude || isNaN(formData.coordinates.longitude)) {
+    if (
+      !formData.coordinates.longitude ||
+      isNaN(formData.coordinates.longitude)
+    ) {
       errors.longitude = "Valid longitude is required";
     } else if (
       formData.coordinates.longitude < -180 ||
@@ -251,9 +257,7 @@ export default function AddLocationPage() {
                   <input
                     type="checkbox"
                     checked={formData.bestTimeOfDay.includes(time)}
-                    onChange={() =>
-                      handleArrayToggle("bestTimeOfDay", time)
-                    }
+                    onChange={() => handleArrayToggle("bestTimeOfDay", time)}
                   />
                   {time.charAt(0).toUpperCase() + time.slice(1)}
                 </label>
@@ -333,7 +337,11 @@ export default function AddLocationPage() {
         </div>
 
         <div className={styles.actions}>
-          <button type="submit" disabled={loading} className={styles.submitButton}>
+          <button
+            type="submit"
+            disabled={loading}
+            className={styles.submitButton}
+          >
             {loading ? "Creating..." : "Create Location"}
           </button>
           <button

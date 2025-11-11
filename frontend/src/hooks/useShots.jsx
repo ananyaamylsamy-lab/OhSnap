@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import * as api from '../utils/api';
+import { useState, useEffect } from "react";
+import * as api from "../utils/api";
 
 export function useShots(filters = {}) {
   const [shots, setShots] = useState([]);

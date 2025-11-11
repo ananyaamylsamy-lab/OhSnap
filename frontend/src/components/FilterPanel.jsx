@@ -7,7 +7,14 @@ const FILTER_OPTIONS = {
   accessibility: ["very accessible", "moderate", "difficult to access"],
   timeOfDay: ["sunrise", "golden hour", "midday", "blue hour", "night"],
   season: ["spring", "summer", "fall", "winter"],
-  styles: ["landscape", "portrait", "macro", "wildlife", "architecture", "street"],
+  styles: [
+    "landscape",
+    "portrait",
+    "macro",
+    "wildlife",
+    "architecture",
+    "street",
+  ],
 };
 
 export default function FilterPanel({ onFilter, onReset }) {

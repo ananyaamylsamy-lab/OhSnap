@@ -24,8 +24,8 @@ router.post("/", requireAuth, async (req, res) => {
     } = req.body;
 
     if (!locationId || !date || !cameraModel) {
-      return res.status(400).json({ 
-        error: "Location, date, and camera model are required" 
+      return res.status(400).json({
+        error: "Location, date, and camera model are required",
       });
     }
 
@@ -169,7 +169,7 @@ router.put("/:id", requireAuth, async (req, res) => {
 
     await shots.updateOne(
       { _id: new ObjectId(req.params.id) },
-      { $set: updates }
+      { $set: updates },
     );
 
     res.json({ message: "Shot updated successfully" });
@@ -225,34 +225,37 @@ router.get("/stats/:userId", async (req, res) => {
 
     // Calculate stats
     const totalShots = userShots.length;
-    const averageRating = 
+    const averageRating =
       userShots.reduce((sum, shot) => sum + (shot.rating || 0), 0) / totalShots;
 
     // Most used camera
     const cameraCount = {};
-    userShots.forEach(shot => {
+    userShots.forEach((shot) => {
       if (shot.cameraModel) {
-        cameraCount[shot.cameraModel] = (cameraCount[shot.cameraModel] || 0) + 1;
+        cameraCount[shot.cameraModel] =
+          (cameraCount[shot.cameraModel] || 0) + 1;
       }
     });
-    const favoriteCamera = Object.keys(cameraCount).reduce((a, b) => 
-      cameraCount[a] > cameraCount[b] ? a : b, null
+    const favoriteCamera = Object.keys(cameraCount).reduce(
+      (a, b) => (cameraCount[a] > cameraCount[b] ? a : b),
+      null,
     );
 
     // Most used lens
     const lensCount = {};
-    userShots.forEach(shot => {
+    userShots.forEach((shot) => {
       if (shot.lens) {
         lensCount[shot.lens] = (lensCount[shot.lens] || 0) + 1;
       }
     });
-    const favoriteLens = Object.keys(lensCount).reduce((a, b) => 
-      lensCount[a] > lensCount[b] ? a : b, null
+    const favoriteLens = Object.keys(lensCount).reduce(
+      (a, b) => (lensCount[a] > lensCount[b] ? a : b),
+      null,
     );
 
     // Top locations
     const locationCount = {};
-    userShots.forEach(shot => {
+    userShots.forEach((shot) => {
       const locId = shot.locationId.toString();
       locationCount[locId] = (locationCount[locId] || 0) + 1;
     });

@@ -121,13 +121,13 @@ router.put("/profile", async (req, res) => {
 
     await users.updateOne(
       { _id: new ObjectId(req.session.userId) },
-      { 
-        $set: { 
+      {
+        $set: {
           ...(email && { email }),
           ...(bio !== undefined && { bio }),
-          updatedAt: new Date() 
-        } 
-      }
+          updatedAt: new Date(),
+        },
+      },
     );
 
     if (email) req.session.email = email;

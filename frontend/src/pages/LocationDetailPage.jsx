@@ -32,7 +32,13 @@ export default function LocationDetailPage() {
     "aerial",
     "nature",
   ];
-  const TIMES_OF_DAY = ["sunrise", "golden hour", "midday", "blue hour", "night"];
+  const TIMES_OF_DAY = [
+    "sunrise",
+    "golden hour",
+    "midday",
+    "blue hour",
+    "night",
+  ];
   const SEASONS = ["spring", "summer", "fall", "winter"];
   const DIFFICULTIES = ["easy", "moderate", "challenging"];
   const ACCESSIBILITY_LEVELS = [
@@ -95,7 +101,6 @@ export default function LocationDetailPage() {
 
       await editLocation(id, updateData);
       setIsEditing(false);
-    
     } catch (err) {
       setEditError(err.message || "Failed to update location");
     } finally {
@@ -115,7 +120,10 @@ export default function LocationDetailPage() {
     return (
       <div className={styles.container}>
         <div className={styles.error}>{error}</div>
-        <button onClick={() => navigate("/locations")} className={styles.backButton}>
+        <button
+          onClick={() => navigate("/locations")}
+          className={styles.backButton}
+        >
           ← Back to Locations
         </button>
       </div>
@@ -126,7 +134,10 @@ export default function LocationDetailPage() {
     return (
       <div className={styles.container}>
         <div className={styles.empty}>Location not found</div>
-        <button onClick={() => navigate("/locations")} className={styles.backButton}>
+        <button
+          onClick={() => navigate("/locations")}
+          className={styles.backButton}
+        >
           ← Back to Locations
         </button>
       </div>
@@ -136,18 +147,20 @@ export default function LocationDetailPage() {
   // Debug logging
   console.log("User:", user);
   console.log("Current Location Created By:", currentLocation?.createdBy);
-  
+
   const userId = user?.userId || user?._id;
-  const createdById = currentLocation?.createdBy?.toString ? currentLocation.createdBy.toString() : currentLocation?.createdBy;
-  
+  const createdById = currentLocation?.createdBy?.toString
+    ? currentLocation.createdBy.toString()
+    : currentLocation?.createdBy;
+
   const isOwner = userId && createdById && userId.toString() === createdById;
-  
+
   console.log("User ID:", userId);
   console.log("Created By ID:", createdById);
   console.log("Is Owner:", isOwner);
-  
+
   const canEdit = user ? true : false;
-  
+
   const avgRating =
     currentLocation.ratingCount > 0
       ? (currentLocation.rating / currentLocation.ratingCount).toFixed(1)
@@ -195,7 +208,7 @@ export default function LocationDetailPage() {
                   onClick={() => setIsEditing(true)}
                   className={styles.editButton}
                 >
-                   Edit 
+                  Edit
                 </button>
               </div>
             )}
@@ -215,7 +228,9 @@ export default function LocationDetailPage() {
             </div>
             <div className={styles.statCard}>
               <div className={styles.statLabel}>Shots</div>
-              <div className={styles.statValue}>{currentLocation.shotCount}</div>
+              <div className={styles.statValue}>
+                {currentLocation.shotCount}
+              </div>
             </div>
             <div className={styles.statCard}>
               <div className={styles.statLabel}>Difficulty</div>
@@ -236,23 +251,24 @@ export default function LocationDetailPage() {
           <div className={styles.section}>
             <h2>Coordinates</h2>
             <p>
-              Latitude: {currentLocation.coordinates.latitude.toFixed(4)}, Longitude:{" "}
-              {currentLocation.coordinates.longitude.toFixed(4)}
+              Latitude: {currentLocation.coordinates.latitude.toFixed(4)},
+              Longitude: {currentLocation.coordinates.longitude.toFixed(4)}
             </p>
           </div>
 
-          {currentLocation.bestTimeOfDay && currentLocation.bestTimeOfDay.length > 0 && (
-            <div className={styles.section}>
-              <h2>Best Time of Day</h2>
-              <div className={styles.tagsList}>
-                {currentLocation.bestTimeOfDay.map((time) => (
-                  <span key={time} className={styles.tag}>
-                    {time}
-                  </span>
-                ))}
+          {currentLocation.bestTimeOfDay &&
+            currentLocation.bestTimeOfDay.length > 0 && (
+              <div className={styles.section}>
+                <h2>Best Time of Day</h2>
+                <div className={styles.tagsList}>
+                  {currentLocation.bestTimeOfDay.map((time) => (
+                    <span key={time} className={styles.tag}>
+                      {time}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           {currentLocation.seasons && currentLocation.seasons.length > 0 && (
             <div className={styles.section}>

@@ -20,24 +20,27 @@ export const useLocations = () => {
   });
 
   // Fetch all locations with filters
-  const getLocations = useCallback(async (filters = {}, page = 1) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await fetchLocations({
-        ...filters,
-        page,
-        limit: pagination.limit,
-      });
-      setLocations(data.locations);
-      setPagination(data.pagination);
-    } catch (err) {
-      setError(err.message);
-      console.error("Error fetching locations:", err);
-    } finally {
-      setLoading(false);
-    }
-  }, [pagination.limit]);
+  const getLocations = useCallback(
+    async (filters = {}, page = 1) => {
+      setLoading(true);
+      setError(null);
+      try {
+        const data = await fetchLocations({
+          ...filters,
+          page,
+          limit: pagination.limit,
+        });
+        setLocations(data.locations);
+        setPagination(data.pagination);
+      } catch (err) {
+        setError(err.message);
+        console.error("Error fetching locations:", err);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [pagination.limit],
+  );
 
   // Fetch single location
   const getLocationById = useCallback(async (id) => {
@@ -73,45 +76,51 @@ export const useLocations = () => {
   }, []);
 
   // Update location
-  const editLocation = useCallback(async (id, updates) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await updateLocation(id, updates);
-      setLocations((prev) =>
-        prev.map((loc) => (loc._id === id ? data.location : loc))
-      );
-      if (currentLocation?._id === id) {
-        setCurrentLocation(data.location);
+  const editLocation = useCallback(
+    async (id, updates) => {
+      setLoading(true);
+      setError(null);
+      try {
+        const data = await updateLocation(id, updates);
+        setLocations((prev) =>
+          prev.map((loc) => (loc._id === id ? data.location : loc)),
+        );
+        if (currentLocation?._id === id) {
+          setCurrentLocation(data.location);
+        }
+        return data.location;
+      } catch (err) {
+        setError(err.message);
+        console.error("Error updating location:", err);
+        throw err;
+      } finally {
+        setLoading(false);
       }
-      return data.location;
-    } catch (err) {
-      setError(err.message);
-      console.error("Error updating location:", err);
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  }, [currentLocation?._id]);
+    },
+    [currentLocation?._id],
+  );
 
   // Delete location
-  const removeLocation = useCallback(async (id) => {
-    setLoading(true);
-    setError(null);
-    try {
-      await deleteLocation(id);
-      setLocations((prev) => prev.filter((loc) => loc._id !== id));
-      if (currentLocation?._id === id) {
-        setCurrentLocation(null);
+  const removeLocation = useCallback(
+    async (id) => {
+      setLoading(true);
+      setError(null);
+      try {
+        await deleteLocation(id);
+        setLocations((prev) => prev.filter((loc) => loc._id !== id));
+        if (currentLocation?._id === id) {
+          setCurrentLocation(null);
+        }
+      } catch (err) {
+        setError(err.message);
+        console.error("Error deleting location:", err);
+        throw err;
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      setError(err.message);
-      console.error("Error deleting location:", err);
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  }, [currentLocation?._id]);
+    },
+    [currentLocation?._id],
+  );
 
   return {
     locations,
