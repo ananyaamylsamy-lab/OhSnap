@@ -2,22 +2,13 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
 import { useShots } from '../hooks/useShots.jsx';
 import ShotCard from '../components/ShotCard';
-import PropTypes from 'prop-types';
 import styles from './MyShotsPage.module.css';
 
 function MyShotsPage() {
   const { user } = useAuth();
-  const { shots, loading, error, deleteShot } = useShots({ userId: user?.userId });
-
-  const handleDelete = async (shotId) => {
-    if (window.confirm('Delete this shot?')) {
-      try {
-        await deleteShot(shotId);
-      } catch (err) {
-        alert('Failed to delete shot: ' + err.message);
-      }
-    }
-  };
+  const { shots, loading, error } = useShots(
+    user?.userId ? { userId: user.userId } : {}
+  );
 
   if (loading) {
     return <div className="loading">Loading your shots...</div>;

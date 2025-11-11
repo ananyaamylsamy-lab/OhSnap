@@ -33,7 +33,7 @@ function AddShotPage() {
   const loadLocations = async () => {
     try {
       const data = await api.fetchLocations();
-      setLocations(data);
+      setLocations(data.locations || data || []);
     } catch (err) {
       console.error('Error loading locations:', err);
       setError('Failed to load locations. Please ensure locations are available.');
@@ -97,7 +97,7 @@ function AddShotPage() {
               required
             >
               <option value="">Select a location</option>
-              {locations.map((loc) => (
+              {Array.isArray(locations) && locations.map((loc) => (
                 <option key={loc._id} value={loc._id}>
                   {loc.name}
                 </option>
