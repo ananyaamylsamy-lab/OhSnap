@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -18,17 +19,16 @@ function DashboardPage() {
       <div className={styles.quickActions}>
         <h2>Quick Actions</h2>
         <div className={styles.actionGrid}>
-          {/* TODO: Ananyaa - Add your shot actions */}
           <div className={styles.actionCard}>
             <h3>Log New Shot</h3>
             <p>Record your latest photo shoot with camera metadata</p>
-            <button className={styles.actionBtn} disabled>Coming Soon</button>
+            <Link to="/shots/new" className={styles.actionBtn}>Log Shot</Link>
           </div>
           
           <div className={styles.actionCard}>
             <h3>View My Shots</h3>
             <p>Browse your shot history and statistics</p>
-            <button className={styles.actionBtn} disabled>Coming Soon</button>
+            <Link to="/shots" className={styles.actionBtn}>My Shots</Link>
           </div>
           
           <Link to="/locations" className={styles.actionCard}>
