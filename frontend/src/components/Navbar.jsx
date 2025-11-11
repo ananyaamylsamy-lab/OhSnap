@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import PropTypes from "prop-types";
 import styles from "./Navbar.module.css";
 
 function Navbar() {

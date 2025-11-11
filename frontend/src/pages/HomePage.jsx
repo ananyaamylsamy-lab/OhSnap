@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth.jsx";
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import styles from "./HomePage.module.css";
 
 function HomePage() {

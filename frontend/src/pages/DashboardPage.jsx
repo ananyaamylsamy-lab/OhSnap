@@ -75,32 +75,6 @@ function DashboardPage() {
           </Link>
         </div>
       </div>
-
-      <div className={styles.statsSection}>
-        <h2>MY Stats</h2>
-        <div className={styles.statsGrid}>
-          <div className={styles.statCard}>
-            <div className={styles.statValue}>{stats?.totalShots || 0}</div>
-            <div className={styles.statLabel}>Total Shots</div>
-          </div>
-          <div className={styles.statCard}>
-            <div className={styles.statValue}>
-              {stats?.topLocations?.length || 0}
-            </div>
-            <div className={styles.statLabel}>Locations Visited</div>
-          </div>
-          <div className={styles.statCard}>
-            <div className={styles.statValue}>
-              {stats?.favoriteCamera || "-"}
-            </div>
-            <div className={styles.statLabel}>Favorite Camera</div>
-          </div>
-          <div className={styles.statCard}>
-            <div className={styles.statValue}>{stats?.averageRating || 0}</div>
-            <div className={styles.statLabel}>Average Rating</div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

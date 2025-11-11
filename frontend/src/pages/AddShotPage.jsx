@@ -37,7 +37,7 @@ function AddShotPage() {
     } catch (err) {
       console.error("Error loading locations:", err);
       setError(
-        "Failed to load locations. Please ensure locations are available.",
+        "Failed to load locations. Please ensure locations are available."
       );
       setLocations([]);
     }
@@ -57,8 +57,13 @@ function AddShotPage() {
     setError("");
 
     try {
+      const selectedLocation = locations.find(
+        (loc) => loc._id === formData.locationId
+      );
+
       const shotData = {
         ...formData,
+        locationName: selectedLocation ? selectedLocation.name : "",
         aperture: formData.aperture ? parseFloat(formData.aperture) : null,
         iso: formData.iso ? parseInt(formData.iso) : null,
         rating: parseFloat(formData.rating),

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth.jsx";
 import * as api from "../utils/api";
@@ -14,6 +14,17 @@ function ShotDetailPage() {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [editFormData, setEditFormData] = useState({});
+
+  console.log('User ID:', user?.userId, typeof user?.userId);
+console.log('Shot User ID:', shot?.userId, typeof shot?.userId);
+console.log('User ID string:', user?.userId?.toString());
+console.log('Shot User ID string:', shot?.userId?.toString());
+console.log('Are they equal?', user?.userId?.toString() === shot?.userId?.toString());
+console.log('isOwner result:', user?.userId && shot?.userId && 
+  user.userId.toString() === shot.userId.toString());
+
+  const isOwner = user?.userId && shot?.userId && 
+  user.userId.toString() === shot.userId.toString();
 
   useEffect(() => {
     loadShot();
@@ -111,11 +122,6 @@ function ShotDetailPage() {
   if (!shot) {
     return <div className={styles.error}>Shot not found</div>;
   }
-
-  const isOwner =
-    user?.userId &&
-    shot?.userId &&
-    (user.userId === shot.userId.toString() || user.userId === shot.userId);
 
   return (
     <div className={styles.container}>

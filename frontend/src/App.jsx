@@ -14,7 +14,7 @@ import MyShotsPage from "./pages/MyShotsPage";
 import AddShotPage from "./pages/AddShotPage";
 import ShotDetailPage from "./pages/ShotDetailPage";
 import PhotographerProfilePage from "./pages/PhotographerProfilePage";
-
+import PropTypes from "prop-types";
 import MapPage from "./components/MapPage";
 import LocationsPage from "./pages/LocationsPage";
 import AddLocationPage from "./pages/AddLocationPage";
@@ -29,6 +29,10 @@ function ProtectedRoute({ children }) {
 
   return user ? children : <Navigate to="/login" />;
 }
+
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 function App() {
   return (

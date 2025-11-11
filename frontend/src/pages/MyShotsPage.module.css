@@ -1,33 +1,84 @@
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px;
 }
 
 .header {
+  margin-bottom: 24px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+  align-items: flex-start;
 }
 
 .header h1 {
-  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.header p {
   margin: 0;
+  color: #666;
+  font-size: 14px;
 }
 
 .addBtn {
-  background: #667eea;
+  background: #5a7a63;
   color: white;
   padding: 12px 24px;
   border-radius: 5px;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .addBtn:hover {
-  background: #5568d3;
+  background: #4a6a53;
+}
+
+.statsSection {
+  margin-bottom: 32px;
+}
+
+.statsSection h2 {
+  margin: 0 0 16px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.statCard {
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 16px;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #5a7a63;
+  margin-bottom: 6px;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .grid {
@@ -38,40 +89,41 @@
 
 .empty {
   text-align: center;
-  padding: 80px 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 60px 20px;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
 }
 
 .empty p {
-  font-size: 1.2rem;
-  color: #7f8c8d;
-  margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
 }
 
 .emptyBtn {
   display: inline-block;
-  background: #667eea;
+  background: #5a7a63;
   color: white;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .emptyBtn:hover {
-  background: #5568d3;
+  background: #4a6a53;
 }
 
 .error {
   background: #fee;
   color: #c33;
-  padding: 20px;
+  padding: 16px;
   border-radius: 5px;
   text-align: center;
   margin: 20px;
+  font-size: 13px;
 }
 
 @media (max-width: 768px) {
@@ -80,7 +132,11 @@
     gap: 15px;
     align-items: flex-start;
   }
-
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .grid {
     grid-template-columns: 1fr;
   }
