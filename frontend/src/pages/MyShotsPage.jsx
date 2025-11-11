@@ -33,7 +33,7 @@ function MyShotsPage() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>My Shots 📷</h1>
+        <h1>My Shots</h1>
         <Link to="/shots/new" className={styles.addBtn}>
           + Log New Shot
         </Link>

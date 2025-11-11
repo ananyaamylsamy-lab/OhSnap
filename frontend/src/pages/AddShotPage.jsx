@@ -79,7 +79,7 @@ function AddShotPage() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Log New Shot 📷</h1>
+        <h1>Log New Shot</h1>
       </div>
 
       {error && <div className={styles.error}>{error}</div>}
