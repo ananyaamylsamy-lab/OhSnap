@@ -14,9 +14,6 @@ NUID: 002711528
 ## Web Development
 [View Course link](https://northeastern.instructure.com/courses/226004)
 
-## Live site
-
-
 ## Objective
 Build a collaborative photography platform where photographers discover hidden gem locations, log photo shoots with detailed camera metadata, and help the community find the best spots based on style, time of day, season, and conditions using React, Node.js, Express, and MongoDB.
 
