@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './DashboardPage.module.css';
 
