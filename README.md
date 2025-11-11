@@ -12,16 +12,10 @@ Email: sekar.ma@northeastern.edu
 NUID: 002711528
 
 ## Web Development
-Course link: https://northeastern.instructure.com/courses/226004
-
-## Presentation 
-https://docs.google.com/presentation/d/1wYwPTzhxg-QC81eqDIFUv5eIaByD9ExLh5nAZymkYRU/edit?usp=sharing
-
-## Design Document
-https://docs.google.com/document/d/14lqj578vwxCjqC0RU1qotqhrvn7PvLqocm_cNUkajx8/edit?usp=sharing
+[View Course link](https://northeastern.instructure.com/courses/226004)
 
 ## Live site
-https://ohsnap.onrender.com
+
 
 ## Objective
 Build a collaborative photography platform where photographers discover hidden gem locations, log photo shoots with detailed camera metadata, and help the community find the best spots based on style, time of day, season, and conditions using React, Node.js, Express, and MongoDB.
@@ -36,8 +30,14 @@ Build a collaborative photography platform where photographers discover hidden g
 ## Screenshots
 - <TODO>
 
+## Design Document
+[View Design Document](https://docs.google.com/document/d/14lqj578vwxCjqC0RU1qotqhrvn7PvLqocm_cNUkajx8/edit?usp=sharing)
+
 ## Live Webpage
-- <TODO>
+[Visit Live Site](https://ohsnap.onrender.com)
+
+## Presentation 
+[View Presentation Slides](https://docs.google.com/presentation/d/1wYwPTzhxg-QC81eqDIFUv5eIaByD9ExLh5nAZymkYRU/edit?usp=sharing)
 
 ## Tech Stack
 **Backend:** Node.js + Express (ES6 modules), MongoDB (official driver, NO Mongoose), Express-session  
@@ -131,5 +131,5 @@ MIT License - Permission is hereby granted to use, copy, modify, and distribute 
 - LinkedIn: [linkedin.com/in/manasha-sekar](https://www.linkedin.com/in/manasha-sekar-240326148)
 - GitHub: [github.com/manasha](https://github.com/manasha2402)
 
-## References
+## GenAI Documentation
 - <TODO>
