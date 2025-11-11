@@ -17,8 +17,11 @@ Course link: https://northeastern.instructure.com/courses/226004
 ## Presentation 
 https://docs.google.com/presentation/d/1wYwPTzhxg-QC81eqDIFUv5eIaByD9ExLh5nAZymkYRU/edit?usp=sharing
 
-## Documentation
+## Design Document
 https://docs.google.com/document/d/14lqj578vwxCjqC0RU1qotqhrvn7PvLqocm_cNUkajx8/edit?usp=sharing
+
+## Live site
+https://ohsnap.onrender.com
 
 ## Objective
 Build a collaborative photography platform where photographers discover hidden gem locations, log photo shoots with detailed camera metadata, and help the community find the best spots based on style, time of day, season, and conditions using React, Node.js, Express, and MongoDB.
