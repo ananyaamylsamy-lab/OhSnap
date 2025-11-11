@@ -33,7 +33,7 @@ Build a collaborative photography platform where photographers discover hidden g
 ### Home Page and Map Feature
 <div align="center">
   <img src="frontend/public/images/Webpage.png" alt="Home Page" width="45%" style="margin:10px;">
-  <img src=".frontend/public/images/MapFeature.png" alt="Map Feature" width="45%" style="margin:10px;">
+  <img src="frontend/public/images/MapFeature.png" alt="Map Feature" width="45%" style="margin:10px;">
 </div>
 
 ### View and Add Location
