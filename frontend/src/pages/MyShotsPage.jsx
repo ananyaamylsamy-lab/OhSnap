@@ -1,14 +1,26 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth.jsx';
 import { useShots } from '../hooks/useShots.jsx';
 import ShotCard from '../components/ShotCard';
+import SearchBar from '../components/SearchBar';
 import styles from './MyShotsPage.module.css';
 
 function MyShotsPage() {
   const { user } = useAuth();
+  const [searchTerm, setSearchTerm] = useState('');
   const { shots, loading, error } = useShots(
     user?.userId ? { userId: user.userId } : {}
   );
+
+  const filteredShots = shots.filter(shot => {
+    if (!searchTerm) return true;
+    const search = searchTerm.toLowerCase();
+    return (
+      shot.cameraModel?.toLowerCase().includes(search) ||
+      shot.lens?.toLowerCase().includes(search)
+    );
+  });
 
   if (loading) {
     return <div className="loading">Loading your shots...</div>;
@@ -27,7 +39,12 @@ function MyShotsPage() {
         </Link>
       </div>
 
-      {shots.length === 0 ? (
+      <SearchBar 
+        onSearch={setSearchTerm} 
+        placeholder="Search by camera or lens..." 
+      />
+
+      {filteredShots.length === 0 ? (
         <div className={styles.empty}>
           <p>No shots logged yet!</p>
           <Link to="/shots/new" className={styles.emptyBtn}>
@@ -36,7 +53,7 @@ function MyShotsPage() {
         </div>
       ) : (
         <div className={styles.grid}>
-          {shots.map((shot) => (
+          {filteredShots.map((shot) => (
             <ShotCard key={shot._id} shot={shot} showPhotographer={false} />
           ))}
         </div>

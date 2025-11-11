@@ -1,31 +1,26 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import styles from './HomePage.module.css';
 
 function HomePage() {
   const { user } = useAuth();
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
-  // Add your photo URLs here
   const photos = [
-    'https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=600&fit=crop',
-  ];
+  '../images/sample1.jpg',
+  '../images/sample2.jpg',
+  '../images/sample3.jpg',
+  '../images/sample4.jpg',
+];
 
-  // Auto-rotate photos every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPhoto((prev) => (prev + 1) % photos.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
-  }, [photos.length]);
-
-  const goToPhoto = (index) => {
-    setCurrentPhoto(index);
-  };
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -43,43 +38,40 @@ function HomePage() {
           <div className={styles.overlay} />
         </div>
 
-        <div className={styles.carouselControls}>
-          {photos.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles.dot} ${
-                index === currentPhoto ? styles.activeDot : ''
-              }`}
-              onClick={() => goToPhoto(index)}
-              aria-label={`Go to photo ${index + 1}`}
-            />
-          ))}
-        </div>
-
         <div className={styles.heroContent}>
-          <h1 className={styles.title}>OhSnap!</h1>
-          <p className={styles.tagline}>
-            Capture spots worth saying &apos;Oh Snap!&apos;
-          </p>
-          <p className={styles.description}>
-            Discover hidden gem photography locations, log your shoots with detailed camera metadata, 
-            and help the community find the best spots based on style, time of day, and conditions.
-          </p>
-          
-          {user ? (
-            <Link to="/dashboard" className={styles.ctaButton}>
-              Go to Dashboard
-            </Link>
-          ) : (
-            <div className={styles.ctaButtons}>
-              <Link to="/signup" className={styles.ctaButton}>
-                Sign Up 
-              </Link>
-              <Link to="/login" className={styles.ctaButtonSecondary}>
-                Login
-              </Link>
+          <div className={styles.contentBox}>
+            <img 
+              src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=400&fit=crop" 
+              alt="Camera"
+              className={styles.featuredImage}
+            />
+            
+            <div className={styles.textContent}>
+              <h1 className={styles.title}>OhSnap!</h1>
+              <p className={styles.tagline}>
+                Capture spots worth saying &apos;Oh Snap!&apos;
+              </p>
+              <p className={styles.description}>
+                Discover hidden gem photography locations, log your shoots with detailed camera metadata, 
+                and help the community find the best spots based on style, time of day, and conditions.
+              </p>
+              
+              {user ? (
+                <Link to="/dashboard" className={styles.ctaButton}>
+                  Go to Dashboard
+                </Link>
+              ) : (
+                <div className={styles.ctaButtons}>
+                  <Link to="/signup" className={styles.ctaButton}>
+                    Sign Up
+                  </Link>
+                  <Link to="/login" className={styles.ctaButtonSecondary}>
+                    Login
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </section>
 
@@ -119,6 +111,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
       <footer className={styles.footer}>
         <p>© 2025 OhSnap! Made with ❤️ by Ananyaa and Manasha</p>
       </footer>
