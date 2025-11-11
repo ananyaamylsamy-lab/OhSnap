@@ -31,30 +31,35 @@ Build a collaborative photography platform where photographers discover hidden g
 ## Screenshots
 
 ### Home Page and Map Feature
+
 <div align="center">
   <img src="frontend/public/images/Webpage.png" alt="Home Page" width="45%" style="margin:10px;">
   <img src="frontend/public/images/MapFeature.png" alt="Map Feature" width="45%" style="margin:10px;">
 </div>
 
 ### View and Add Location
+
 <div align="center">
   <img src="frontend/public/images/ViewLocation.png" alt="View Location" width="45%" style="margin:10px;">
   <img src="frontend/public/images/AddLocation.png" alt="Add Location" width="45%" style="margin:10px;">
 </div>
 
 ### Add and View Shots
+
 <div align="center">
   <img src="frontend/public/images/AddShot.png" alt="Add Shot" width="45%" style="margin:10px;">
   <img src="frontend/public/images/ViewShots.png" alt="View Shots" width="45%" style="margin:10px;">
 </div>
 
 ### Dashboard and Stats
+
 <div align="center">
   <img src="frontend/public/images/Dashboard.png" alt="Dashboard" width="45%" style="margin:10px;">
   <img src="frontend/public/images/Stats.png" alt="Stats" width="45%" style="margin:10px;">
 </div>
 
 ### MongoDB Atlas and Render
+
 <div align="center">
   <img src="frontend/public/images/MongoAtlas.png" alt="MongoDB Atlas Integration" width="45%" style="margin:10px;">
   <img src="frontend/public/images/Render.png" alt="Render" width="45%" style="margin:10px;">
@@ -126,7 +131,7 @@ Build a collaborative photography platform where photographers discover hidden g
    SESSION_SECRET=your-secret-key-min-32-chars
    NODE_ENV=development
    ```
-    Create a `.env` file in the `frontend` directory:
+   Create a `.env` file in the `frontend` directory:
    ```
    VITE_MAPBOX_TOKEN=your_mapbox_access_token_here
    ```

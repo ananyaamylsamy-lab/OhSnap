@@ -14,9 +14,9 @@
     "install-frontend": "cd frontend && npm install",
     "install-all": "npm run install-backend && npm run install-frontend",
     "lint": "eslint .",
-"lint:fix": "eslint . --fix",
-"format": "prettier --write frontend backend",
-"fix:all": "npm run format && npm run lint:fix"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write frontend backend",
+    "fix:all": "npm run format && npm run lint:fix"
   },
   "author": "Manasha Sekar & Ananyaa Mylsamy",
   "license": "MIT",

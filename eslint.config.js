@@ -10,7 +10,7 @@ export default [
   {
     files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
     languageOptions: {
-      parser: babelParser, 
+      parser: babelParser,
       parserOptions: {
         requireConfigFile: false,
         ecmaVersion: "latest",

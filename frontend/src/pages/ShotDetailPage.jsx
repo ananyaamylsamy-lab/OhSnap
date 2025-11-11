@@ -15,16 +15,10 @@ function ShotDetailPage() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [editFormData, setEditFormData] = useState({});
 
-  console.log('User ID:', user?.userId, typeof user?.userId);
-console.log('Shot User ID:', shot?.userId, typeof shot?.userId);
-console.log('User ID string:', user?.userId?.toString());
-console.log('Shot User ID string:', shot?.userId?.toString());
-console.log('Are they equal?', user?.userId?.toString() === shot?.userId?.toString());
-console.log('isOwner result:', user?.userId && shot?.userId && 
-  user.userId.toString() === shot.userId.toString());
-
-  const isOwner = user?.userId && shot?.userId && 
-  user.userId.toString() === shot.userId.toString();
+  const isOwner =
+    user?.userId &&
+    shot?.userId &&
+    user.userId.toString() === shot.userId.toString();
 
   useEffect(() => {
     loadShot();

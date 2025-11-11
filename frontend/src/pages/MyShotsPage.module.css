@@ -132,11 +132,11 @@
     gap: 15px;
     align-items: flex-start;
   }
-  
+
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .grid {
     grid-template-columns: 1fr;
   }
