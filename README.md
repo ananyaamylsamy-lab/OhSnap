@@ -51,18 +51,11 @@ Build a collaborative photography platform where photographers discover hidden g
   <img src="frontend/public/images/ViewShots.png" alt="View Shots" width="45%" style="margin:10px;">
 </div>
 
-### Dashboard and Stats
+### Dashboard and MongoDB Atlas
 
 <div align="center">
   <img src="frontend/public/images/Dashboard.png" alt="Dashboard" width="45%" style="margin:10px;">
-  <img src="frontend/public/images/Stats.png" alt="Stats" width="45%" style="margin:10px;">
-</div>
-
-### MongoDB Atlas and Render
-
-<div align="center">
   <img src="frontend/public/images/MongoAtlas.png" alt="MongoDB Atlas Integration" width="45%" style="margin:10px;">
-  <img src="frontend/public/images/Render.png" alt="Render" width="45%" style="margin:10px;">
 </div>
 
 ## Design Document
