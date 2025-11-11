@@ -134,6 +134,69 @@
   color: #666;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+}.imageCard {
+  display: block;
+  position: relative;
+  height: 280px; /* Increased height for better proportions */
+  background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800') center/cover;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  grid-column: 1 / -1; /* Spans all columns in grid */
+  width: 100%;
+}
+
+.imageCard:hover {
+  transform: scale(1.01); /* Reduced scale for larger card */
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+  transition: opacity 0.3s ease;
+}
+
+.imageCard:hover .imageOverlay {
+  opacity: 0.9;
+}
+
+.imageContent {
+  position: relative;
+  z-index: 1;
+  padding: 32px; /* Increased padding for larger card */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.imageTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.imageContent h3 {
+  margin: 0;
+  font-size: 32px; /* Increased font size */
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.imageContent p {
+  margin: 8px 0 0 0;
+  font-size: 15px; /* Slightly larger */
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
@@ -152,5 +215,23 @@
 
   .statValue {
     font-size: 28px;
+  }
+
+  /* Full width on mobile too */
+  .imageCard {
+    height: 220px;
+    grid-column: 1;
+  }
+
+  .imageContent {
+    padding: 24px;
+  }
+
+  .imageContent h3 {
+    font-size: 24px;
+  }
+
+  .imageContent p {
+    font-size: 14px;
   }
 }

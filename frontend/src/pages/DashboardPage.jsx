@@ -40,6 +40,19 @@ function DashboardPage() {
             <p>Share a new photography spot</p>
             <button className={styles.actionBtn}>Add</button>
           </Link>
+    
+         <Link to="/map" className={styles.imageCard}>
+  <div className={styles.imageOverlay}></div>
+  <div className={styles.imageContent}>
+    <div className={styles.imageTag}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+      </svg>
+      <span>Map View</span>
+    </div>
+    <h3>Explore Photography Locations</h3>
+  </div>
+</Link>
         </div>
       </div>
 

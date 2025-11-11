@@ -9,6 +9,13 @@ import MyShotsPage from './pages/MyShotsPage';
 import AddShotPage from './pages/AddShotPage';
 import ShotDetailPage from './pages/ShotDetailPage';
 import PhotographerProfilePage from './pages/PhotographerProfilePage';
+<<<<<<< Updated upstream
+=======
+
+
+// Manasha - Location pages
+import MapPage from './components/MapPage';
+>>>>>>> Stashed changes
 import LocationsPage from './pages/LocationsPage';
 import AddLocationPage from './pages/AddLocationPage';
 import LocationDetailPage from './pages/LocationDetailPage';
@@ -56,6 +63,8 @@ function App() {
             } 
           />
           <Route path="/locations/:id" element={<LocationDetailPage />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="/map/nearby" element={<MapPage showNearby={true} />} />
           
           {/* 404 */}
           <Route path="*" element={<div>Page Not Found</div>} />
