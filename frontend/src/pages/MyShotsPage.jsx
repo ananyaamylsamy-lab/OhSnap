@@ -13,7 +13,6 @@ function MyShotsPage() {
     user?.userId ? { userId: user.userId } : {},
   );
 
-  // Calculate stats directly from shots array
   const stats = useMemo(() => {
     if (!shots || shots.length === 0) {
       return {
@@ -81,8 +80,8 @@ function MyShotsPage() {
     <div className={styles.container}>
       <div className={styles.header}>
         <div>
-          <h1>My Shots 📷</h1>
-          <p>Track and manage your photography portfolio</p>
+          <h1>My Shots</h1>
+          <p>Track and manage your shots</p>
         </div>
         <Link to="/shots/new" className={styles.addBtn}>
           + Log New Shot
