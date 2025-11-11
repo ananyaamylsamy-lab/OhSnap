@@ -92,6 +92,7 @@ Build a collaborative photography platform where photographers discover hidden g
 
 - Node.js (v18+)
 - MongoDB Atlas account
+- Mapbox account with a free access token
 - npm
 
 ### Setup Steps
@@ -99,20 +100,22 @@ Build a collaborative photography platform where photographers discover hidden g
 1. Clone repository
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/ohsnap-photography.git
-   cd ohsnap-photography
+   git clone git@github.com:ananyaamylsamy-lab/OhSnap.git
+   cd OhSnap
    ```
 
 2. Install backend dependencies
 
    ```bash
-   npm run install-backend
+   cd backend
+   npm install
    ```
 
 3. Install frontend dependencies
 
    ```bash
-   npm run install-frontend
+   cd ../frontend
+   npm install
    ```
 
 4. Set up environment variables  
@@ -122,6 +125,10 @@ Build a collaborative photography platform where photographers discover hidden g
    PORT=3000
    SESSION_SECRET=your-secret-key-min-32-chars
    NODE_ENV=development
+   ```
+    Create a `.env` file in the `frontend` directory:
+   ```
+   VITE_MAPBOX_TOKEN=your_mapbox_access_token_here
    ```
 
 ### Running the Project
