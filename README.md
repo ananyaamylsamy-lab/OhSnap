@@ -54,8 +54,8 @@ Build a collaborative photography platform where photographers discover hidden g
 ### Dashboard and MongoDB Atlas
 
 <div align="center">
-  <img src="frontend/public/images/Dashboard.png" alt="Dashboard" height="275px" style="margin:10px; object-fit:contain;">
-  <img src="frontend/public/images/MongoAtlas.png" alt="MongoDB Atlas Integration" height="275px" style="margin:10px; object-fit:contain;">
+  <img src="frontend/public/images/Dashboard.png" alt="Dashboard" height="270px" style="margin:10px; object-fit:contain;">
+  <img src="frontend/public/images/MongoAtlas.png" alt="MongoDB Atlas Integration" height="270px" style="margin:10px; object-fit:contain;">
 </div>
 
 ## Design Document
