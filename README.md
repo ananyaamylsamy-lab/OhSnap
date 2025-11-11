@@ -1,4 +1,4 @@
-# OhSnap! 📸
+# OhSnap! 
 
 ## Authors
 **Author 1:**  
@@ -13,6 +13,15 @@ NUID: 002711528
 
 ## Web Development
 Course link: https://northeastern.instructure.com/courses/226004
+
+## Presentation 
+https://docs.google.com/presentation/d/1wYwPTzhxg-QC81eqDIFUv5eIaByD9ExLh5nAZymkYRU/edit?usp=sharing
+
+## Design Document
+https://docs.google.com/document/d/14lqj578vwxCjqC0RU1qotqhrvn7PvLqocm_cNUkajx8/edit?usp=sharing
+
+## Live site
+https://ohsnap.onrender.com
 
 ## Objective
 Build a collaborative photography platform where photographers discover hidden gem locations, log photo shoots with detailed camera metadata, and help the community find the best spots based on style, time of day, season, and conditions using React, Node.js, Express, and MongoDB.
@@ -44,6 +53,7 @@ Build a collaborative photography platform where photographers discover hidden g
 **Manasha Sekar** - Location CRUD (backend routes/validation), search/filters, LocationForm/List/Detail/Map components
 
 **Shared:** User authentication, navigation, linking photographers to locations
+
 
 ## Instructions to Build
 
