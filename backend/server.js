@@ -6,8 +6,7 @@ import { fileURLToPath } from "url";
 import { connectDB } from "./config/database.js";
 import authRoutes from "./routes/auth.js";
 import shotRoutes from "./routes/shots.js";
-// TODO: Manasha - Import location routes when ready
-// import locationRoutes from "./routes/locations.js";
+import locationRoutes from "./routes/locations.js";
 
 dotenv.config();
 
@@ -43,8 +42,7 @@ app.use(express.static(path.join(__dirname, "../frontend/dist")));
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/shots", shotRoutes);
-// TODO: Manasha - Add location routes when ready
-// app.use("/api/locations", locationRoutes);
+app.use("/api/locations", locationRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {

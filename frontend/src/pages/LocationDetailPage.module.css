@@ -1,0 +1,362 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.backButton {
+  padding: 6px 12px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.backButton:hover {
+  background: #eee;
+}
+
+.loading,
+.error,
+.empty {
+  padding: 24px 16px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.loading {
+  color: #666;
+}
+
+.error {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+}
+
+.empty {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.viewMode,
+.editMode {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.title {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.city {
+  margin: 0;
+  font-size: 11px;
+  color: #666;
+}
+
+.headerActions {
+  display: flex;
+  gap: 6px;
+}
+
+.editButton {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.editButton {
+  background: #0066cc;
+  color: white;
+}
+
+.editButton:hover {
+  background: #0052a3;
+}
+
+.deleteButton {
+  background: white;
+  color: #c33;
+  border: 1px solid #ddd;
+}
+
+.deleteButton:hover {
+  background: #fee;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.statCard {
+  background: #f9f9f9;
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.statLabel {
+  font-size: 9px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+.statValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.section {
+  background: #f9f9f9;
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.section h2 {
+  margin: 0 0 6px 0;
+  font-size: 10px;
+  color: #1a1a1a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.section p {
+  margin: 0;
+  color: #555;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  background: white;
+  color: #333;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  border: 1px solid #ddd;
+}
+
+.editMode h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formSection {
+  background: #f9f9f9;
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.formSection h3 {
+  margin: 0 0 6px 0;
+  font-size: 10px;
+  color: #1a1a1a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.formGroup {
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 9px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.input,
+.textarea,
+.select {
+  padding: 5px 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: inherit;
+  background: white;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 50px;
+}
+
+.coordGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.selectGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.checkboxGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 6px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox input {
+  margin-right: 3px;
+  cursor: pointer;
+  width: 13px;
+  height: 13px;
+}
+
+.formActions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.submitButton,
+.cancelButton {
+  flex: 1;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.submitButton {
+  background: #0066cc;
+  color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #0052a3;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.cancelButton:hover {
+  background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .headerActions {
+    width: 100%;
+  }
+
+  .editButton,
+  .deleteButton {
+    flex: 1;
+  }
+
+  .coordGrid,
+  .selectGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+}

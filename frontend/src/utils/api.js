@@ -97,10 +97,31 @@ export const getShotsByLocation = (locationId) => {
 };
 
 // ============ LOCATION ENDPOINTS (Manasha) ============
-// TODO: Manasha - Add your location API functions here
-// Example:
-// export const createLocation = (locationData) => { ... }
-// export const fetchLocations = (filters = {}) => { ... }
-// export const fetchLocationById = (id) => { ... }
-// export const updateLocation = (id, updates) => { ... }
-// export const deleteLocation = (id) => { ... }
+export const createLocation = (locationData) => {
+  return request("/locations", {
+    method: "POST",
+    body: JSON.stringify(locationData),
+  });
+};
+
+export const fetchLocations = (filters = {}) => {
+  const query = new URLSearchParams(filters).toString();
+  return request(`/locations${query ? `?${query}` : ""}`);
+};
+
+export const fetchLocationById = (id) => {
+  return request(`/locations/${id}`);
+};
+
+export const updateLocation = (id, updates) => {
+  return request(`/locations/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(updates),
+  });
+};
+
+export const deleteLocation = (id) => {
+  return request(`/locations/${id}`, {
+    method: "DELETE",
+  });
+};

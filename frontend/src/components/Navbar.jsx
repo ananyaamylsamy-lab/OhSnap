@@ -16,20 +16,21 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <Link to="/" className={styles.brand}>
-          📸 OhSnap!
+          OhSnap!
         </Link>
         
         <div className={styles.links}>
           {user ? (
             <>
               <Link to="/dashboard" className={styles.link}>Dashboard</Link>
+              
               {/* TODO: Ananyaa - Add shot navigation links */}
               {/* <Link to="/shots" className={styles.link}>My Shots</Link> */}
               {/* <Link to="/shots/new" className={styles.link}>Log Shot</Link> */}
               
-              {/* TODO: Manasha - Add location navigation links */}
-              {/* <Link to="/locations" className={styles.link}>Locations</Link> */}
-              {/* <Link to="/locations/new" className={styles.link}>Add Location</Link> */}
+              {/* Manasha - Location navigation links */}
+              <Link to="/locations" className={styles.link}>Locations</Link>
+              <Link to="/add-location" className={styles.link}>+ Add Location</Link>
               
               <span className={styles.username}>👤 {user.username}</span>
               <button onClick={handleLogout} className={styles.logoutBtn}>

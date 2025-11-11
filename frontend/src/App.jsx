@@ -5,16 +5,17 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import DashboardPage from './pages/DashboardPage';
+
 // TODO: Ananyaa - Add your shot pages here
 // import MyShotsPage from './pages/MyShotsPage';
 // import AddShotPage from './pages/AddShotPage';
 // import ShotDetailPage from './pages/ShotDetailPage';
 // import PhotographerProfilePage from './pages/PhotographerProfilePage';
 
-// TODO: Manasha - Import your location pages here
-// import LocationsPage from './pages/LocationsPage';
-// import AddLocationPage from './pages/AddLocationPage';
-// import LocationDetailPage from './pages/LocationDetailPage';
+// Manasha - Location pages
+import LocationsPage from './pages/LocationsPage';
+import AddLocationPage from './pages/AddLocationPage';
+import LocationDetailPage from './pages/LocationDetailPage';
 
 // Protected Route wrapper
 function ProtectedRoute({ children }) {
@@ -56,12 +57,17 @@ function App() {
           <Route path="/photographer/:userId" element={<PhotographerProfilePage />} />
           */}
           
-          {/* TODO: Manasha - Add your location routes */}
-          {/* 
+          {/* Manasha - Location Routes */}
           <Route path="/locations" element={<LocationsPage />} />
-          <Route path="/locations/new" element={<ProtectedRoute><AddLocationPage /></ProtectedRoute>} />
+          <Route 
+            path="/add-location" 
+            element={
+              <ProtectedRoute>
+                <AddLocationPage />
+              </ProtectedRoute>
+            } 
+          />
           <Route path="/locations/:id" element={<LocationDetailPage />} />
-          */}
           
           {/* 404 */}
           <Route path="*" element={<div>Page Not Found</div>} />
