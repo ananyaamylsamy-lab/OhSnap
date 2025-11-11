@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth.jsx';
+import { useAuth } from '../hooks/useAuth';
 import PropTypes from 'prop-types';
 import styles from './Navbar.module.css';
 
@@ -23,10 +23,8 @@ function Navbar() {
           {user ? (
             <>
               <Link to="/dashboard" className={styles.link}>Dashboard</Link>
-              
-              {/* TODO: Ananyaa - Add shot navigation links */}
-              {/* <Link to="/shots" className={styles.link}>My Shots</Link> */}
-              {/* <Link to="/shots/new" className={styles.link}>Log Shot</Link> */}
+              <Link to="/shots" className={styles.link}>My Shots</Link>
+              <Link to="/shots/new" className={styles.link}>Log Shot</Link>
               
               {/* Manasha - Location navigation links */}
               <Link to="/locations" className={styles.link}>Locations</Link>

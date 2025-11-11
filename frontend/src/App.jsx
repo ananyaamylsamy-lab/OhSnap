@@ -5,12 +5,10 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import DashboardPage from './pages/DashboardPage';
-
-// TODO: Ananyaa - Add your shot pages here
-// import MyShotsPage from './pages/MyShotsPage';
-// import AddShotPage from './pages/AddShotPage';
-// import ShotDetailPage from './pages/ShotDetailPage';
-// import PhotographerProfilePage from './pages/PhotographerProfilePage';
+import MyShotsPage from './pages/MyShotsPage';
+import AddShotPage from './pages/AddShotPage';
+import ShotDetailPage from './pages/ShotDetailPage';
+import PhotographerProfilePage from './pages/PhotographerProfilePage';
 
 // Manasha - Location pages
 import LocationsPage from './pages/LocationsPage';
@@ -49,13 +47,11 @@ function App() {
             } 
           />
           
-          {/* TODO: Ananyaa - Add your shot routes */}
-          {/* 
+          {/* Ananyaa - Shot routes */}
           <Route path="/shots" element={<ProtectedRoute><MyShotsPage /></ProtectedRoute>} />
           <Route path="/shots/new" element={<ProtectedRoute><AddShotPage /></ProtectedRoute>} />
           <Route path="/shots/:id" element={<ProtectedRoute><ShotDetailPage /></ProtectedRoute>} />
           <Route path="/photographer/:userId" element={<PhotographerProfilePage />} />
-          */}
           
           {/* Manasha - Location Routes */}
           <Route path="/locations" element={<LocationsPage />} />
